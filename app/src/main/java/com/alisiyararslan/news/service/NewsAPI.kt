@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface NewsAPI {
 
-    @GET("sources?apiKey=${APIKey.key}")// must be updated!!!, enter your api key
+    @GET("sources?apiKey=${APIKey.key}")// must be updated!!!, Get key from https://newsapi.org/
     suspend fun getData() : Response<NewsModel>
 
 }
