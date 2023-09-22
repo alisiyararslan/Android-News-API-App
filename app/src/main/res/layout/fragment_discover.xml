@@ -1,14 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.DiscoverFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:text="DISCOVER" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/business"></ImageView>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage7"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/technology"></ImageView>
+
+
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage3"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/general"></ImageView>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage4"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/health"></ImageView>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage5"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/science"></ImageView>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage2"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/entertainment"></ImageView>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
+        android:id="@+id/discoverFragmentBusinessImage6"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/sports"></ImageView>
+
+
+
+</LinearLayout>
+
+</ScrollView>
