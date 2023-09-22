@@ -2,9 +2,11 @@ package com.alisiyararslan.news.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.alisiyararslan.news.databinding.RecyclerRowNewsBinding
 import com.alisiyararslan.news.model.NewsItem
+import com.alisiyararslan.news.view.HomeFragmentDirections
 import com.squareup.picasso.Picasso
 
 class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
@@ -22,9 +24,16 @@ class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsA
     }
 
     override fun onBindViewHolder(holder: NewsHolder, position: Int) {
-        //holder.binding.recyclerRowImageView.setImageURI(newsList.get)
-        Picasso.get().load(newsList.get(position).urlToImage).into(holder.binding.recyclerRowImageView);
-        holder.binding.recyclerRowDescriptionTextView.text = newsList.get(position).description
+
+        Picasso.get().load(newsList.get(position).urlToImage).into(holder.binding.recyclerRowImageView)
+        holder.binding.recyclerRowTitleTextView.text = newsList.get(position).description
         holder.binding.recyclerRowSourceTextView.text = newsList.get(position).source.name
+
+        holder.binding.recyclerRowLayout.setOnClickListener {
+            val action=HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsList.get(position))
+            Navigation.findNavController(it).navigate(action)
+        }
     }
+
+
 }
