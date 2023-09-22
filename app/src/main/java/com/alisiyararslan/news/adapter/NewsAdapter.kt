@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.alisiyararslan.news.R
 import com.alisiyararslan.news.databinding.RecyclerRowNewsBinding
 import com.alisiyararslan.news.model.NewsItem
 import com.alisiyararslan.news.view.HomeFragmentDirections
@@ -33,6 +34,8 @@ class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsA
             val action=HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsList.get(position))
             Navigation.findNavController(it).navigate(action)
         }
+
+
     }
 
 

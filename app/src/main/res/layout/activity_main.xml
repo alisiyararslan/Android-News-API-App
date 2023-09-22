@@ -37,7 +37,7 @@
             android:src="@drawable/home_filled"
             android:scaleType="centerInside"
             android:background="#00ffffff"
-            android:onClick="sortButton"/>
+            android:onClick="homeButtonclicked"/>
         <Space
             android:layout_width="8dp"
             android:layout_height="wrap_content" />
@@ -52,7 +52,7 @@
             android:src="@drawable/compass_empty"
             android:scaleType="centerInside"
             android:background="#00ffffff"
-            android:onClick="sortButton"/>
+            android:onClick="discoverButtonClicked"/>
         <Space
             android:layout_width="8dp"
             android:layout_height="wrap_content" />
@@ -67,7 +67,7 @@
             android:src="@drawable/search_empty"
             android:scaleType="centerInside"
             android:background="#00ffffff"
-            android:onClick="sortButton"/>
+            android:onClick="searchButtonClicked"/>
 
 
     </LinearLayout>
