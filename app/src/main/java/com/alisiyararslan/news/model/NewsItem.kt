@@ -2,11 +2,12 @@ package com.alisiyararslan.news.model
 
 
 data class NewsItem(
-    val id : String,
-    val name : String,
+    val source: ArticleSource,
+    val author : String,
+    val title : String,
     val description : String,
     val url : String,
-    val category : String,
-    val language : String,
-    val country : String
+    val urlToImage : String,
+    val publishedAt : String,
+    val content : String
 )

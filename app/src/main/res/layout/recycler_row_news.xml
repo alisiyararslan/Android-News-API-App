@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/recycler_row_image_view"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/compass_empty"></ImageView>
+
+    <TextView
+        android:id="@+id/recycler_row_description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Lorem Lorem Lorem Lorem Lorem"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"></TextView>
+
+    <TextView
+        android:layout_marginTop="2dp"
+        android:id="@+id/recycler_row_source_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Lorem Lorem Lorem Lorem Lorem"
+        android:textSize="15dp"
+
+        android:layout_marginLeft="10dp"></TextView>
+
+    <ImageView
+        android:layout_marginTop="3dp"
+        android:id="@+id/seperator"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#eeeff0"
+        ></ImageView>
+
+</LinearLayout>
