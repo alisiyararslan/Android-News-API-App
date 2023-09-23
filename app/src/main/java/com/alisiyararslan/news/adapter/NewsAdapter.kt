@@ -28,15 +28,17 @@ class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsA
 
         Picasso.get().load(newsList.get(position).urlToImage).into(holder.binding.recyclerRowImageView)
         holder.binding.recyclerRowTitleTextView.text = newsList.get(position).description
-        holder.binding.recyclerRowSourceTextView.text = newsList.get(position).source.name
+
+        newsList.get(position).source?.let{
+            holder.binding.recyclerRowSourceTextView.text = newsList.get(position).source!!.name
+        }
+
 
         holder.binding.recyclerRowLayout.setOnClickListener {
             val action=HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsList.get(position))
             Navigation.findNavController(it).navigate(action)
         }
 
-
     }
-
 
 }

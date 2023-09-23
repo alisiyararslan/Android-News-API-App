@@ -11,6 +11,7 @@ import com.alisiyararslan.news.adapter.NewsAdapter
 import com.alisiyararslan.news.databinding.FragmentHomeBinding
 import com.alisiyararslan.news.model.NewsItem
 import com.alisiyararslan.news.service.NewsAPI
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -52,8 +53,8 @@ class HomeFragment : Fragment() {
             .create(NewsAPI::class.java)
 
 
-
-        job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
+//+ exceptionHandler
+        job = CoroutineScope(Dispatchers.IO ).launch {
             val response = retrofit.getData()
 
             withContext(Dispatchers.Main){
@@ -65,11 +66,11 @@ class HomeFragment : Fragment() {
                         val adapter = NewsAdapter(ArrayList(newsItems))
                         binding.homeFragementRecylerView.adapter = adapter
 
-//                        newsItems?.let {
-//                            newsItems!!.forEach {
-//                                println(it)
-//                            }
-//                        }
+                        newsItems?.let {
+                            newsItems!!.forEach {
+                                println(it)
+                            }
+                        }
                     }
                 }
             }
@@ -83,9 +84,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-
-
         val view = binding.root
         return view
     }
@@ -94,7 +92,20 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        loadData()
+        if (requireArguments().isEmpty){
+            loadData()
+        }else{
+            arguments?.let {
+                var newsList = HomeFragmentArgs.fromBundle(it).newsList
+                homeFragmentHeading.text = HomeFragmentArgs.fromBundle(it).newsCategory!!.toUpperCase()
+
+                binding.homeFragementRecylerView.layoutManager = LinearLayoutManager(requireContext())
+                val adapter = NewsAdapter(ArrayList(newsList!!.toList()))
+                binding.homeFragementRecylerView.adapter = adapter
+            }
+        }
+
+
 
 
 

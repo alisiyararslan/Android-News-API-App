@@ -19,6 +19,17 @@
         <action
             android:id="@+id/action_homeFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment" />
+        <argument
+            android:name="newsList"
+            app:argType="com.alisiyararslan.news.model.NewsItem[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="news_category"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

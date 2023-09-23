@@ -52,7 +52,10 @@ class NewsDetailFragment : Fragment() {
 
             Picasso.get().load(news.urlToImage).into(news_detail_image_view)
             news_detail_title_text_view.text= news.title
-            news_detail_source_text_view.text =news.source.name
+            news.source?.let{
+                news_detail_source_text_view.text =news.source!!.name
+            }
+
             news_detail_date_text_view.text=news.publishedAt
             news_detail_description_text_view.text=news.description
             news_detail_content_text_view.text=news.content

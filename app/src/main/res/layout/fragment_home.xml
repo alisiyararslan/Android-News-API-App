@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:id="@+id/homeFragmentHeading"
         android:textSize="20dp"
         android:textColor="@color/black"
         android:text="ALL" />
