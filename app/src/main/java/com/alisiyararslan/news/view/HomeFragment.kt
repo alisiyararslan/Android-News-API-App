@@ -35,13 +35,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
-
-
-
-
     }
 
     private fun loadData() {
@@ -53,8 +46,8 @@ class HomeFragment : Fragment() {
             .create(NewsAPI::class.java)
 
 
-//+ exceptionHandler
-        job = CoroutineScope(Dispatchers.IO ).launch {
+
+        job = CoroutineScope(Dispatchers.IO+ exceptionHandler ).launch {
             val response = retrofit.getData()
 
             withContext(Dispatchers.Main){
@@ -63,14 +56,9 @@ class HomeFragment : Fragment() {
                         newsItems = ArrayList(it.articles)
 
                         binding.homeFragementRecylerView.layoutManager = LinearLayoutManager(requireContext())
-                        val adapter = NewsAdapter(ArrayList(newsItems))
+                        val adapter = NewsAdapter(ArrayList(newsItems),"home")
                         binding.homeFragementRecylerView.adapter = adapter
 
-                        newsItems?.let {
-                            newsItems!!.forEach {
-                                println(it)
-                            }
-                        }
                     }
                 }
             }
@@ -92,24 +80,26 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        if (requireArguments().isEmpty){
-            loadData()
-        }else{
-            arguments?.let {
-                var newsList = HomeFragmentArgs.fromBundle(it).newsList
-                homeFragmentHeading.text = HomeFragmentArgs.fromBundle(it).newsCategory!!.toUpperCase()
+        if (requireArguments().isEmpty){//data comes from home page
 
-                binding.homeFragementRecylerView.layoutManager = LinearLayoutManager(requireContext())
-                val adapter = NewsAdapter(ArrayList(newsList!!.toList()))
-                binding.homeFragementRecylerView.adapter = adapter
+            loadData()
+        }else{//data comes from discover page
+
+            arguments?.let {
+                if (HomeFragmentArgs.fromBundle(it).newsList == null &&HomeFragmentArgs.fromBundle(it).newsCategory ==null){
+                    loadData()
+                }else{
+                    var newsList = HomeFragmentArgs.fromBundle(it).newsList
+
+                    homeFragmentHeading.text = HomeFragmentArgs.fromBundle(it).newsCategory!!.toUpperCase()
+
+                    binding.homeFragementRecylerView.layoutManager = LinearLayoutManager(requireContext())
+                    val adapter = NewsAdapter(ArrayList(newsList!!.toList()),"home")
+                    binding.homeFragementRecylerView.adapter = adapter
+                }
             }
         }
 
-
-
-
-
     }
-
 
 }

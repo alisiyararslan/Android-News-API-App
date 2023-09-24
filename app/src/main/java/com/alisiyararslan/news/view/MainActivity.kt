@@ -27,12 +27,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
     }
 
 
     fun homeButtonclicked(view : View){
-
 
         homeButton.setImageResource(R.drawable.home_filled)
         discoverButton.setImageResource(R.drawable.compass_empty)

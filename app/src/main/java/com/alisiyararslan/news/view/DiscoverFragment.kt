@@ -32,7 +32,6 @@ class DiscoverFragment : Fragment() {
     private val BASE_URL = "https://newsapi.org/v2/"
     private var newsItems: ArrayList<NewsItem>? = null
     private var job : Job? = null
-//    private  var response : Response<NewsModel>
 
     val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         println("Error: ${throwable.localizedMessage}")
@@ -84,7 +83,6 @@ class DiscoverFragment : Fragment() {
             loadData("sports")
         }
 
-
     }
 
     private fun loadData(category : String) {
@@ -95,25 +93,10 @@ class DiscoverFragment : Fragment() {
             .build()
             .create(NewsAPI::class.java)
 
+        job = CoroutineScope(Dispatchers.IO+ exceptionHandler ).launch {
 
-//+ exceptionHandler
-        job = CoroutineScope(Dispatchers.IO ).launch {
-            var response : Response<NewsModel>? = null
-            if (category.equals("business")){
-                response = retrofit.getBusinessData()
-            }else if(category.equals("sports")){
-                response = retrofit.getSportsData()
-            }else if(category.equals("entertainment")){
-                response = retrofit.getEntertainmentData()
-            }else if(category.equals("general")){
-                response = retrofit.getGeneralData()
-            }else if(category.equals("health")){
-                response = retrofit.getHealthData()
-            }else if(category.equals("science")){
-                response = retrofit.getScienceData()
-            }else if(category.equals("technology")){
-                response = retrofit.getTechnologyData()
-            }
+
+            var response = retrofit.getDataByCategory(category)
 
 
             withContext(Dispatchers.Main){
@@ -123,14 +106,9 @@ class DiscoverFragment : Fragment() {
                             newsItems = ArrayList(it.articles)
                             var navController = NavHostFragment.findNavController(this@DiscoverFragment)
                             val action=DiscoverFragmentDirections.actionDiscoverFragmentToHomeFragment(
-                                newsList=newsItems!!.toTypedArray(), newsCategory = category)//newsItems!!.toTypedArray()
+                                newsList=newsItems!!.toTypedArray(), newsCategory = category)
                             navController.navigate(action)
 
-//                            newsItems?.let {
-//                                newsItems!!.forEach {
-//                                    println(it)
-//                                }
-//                            }
                         }
                     }
                 }
@@ -140,6 +118,5 @@ class DiscoverFragment : Fragment() {
 
 
     }
-
 
 }

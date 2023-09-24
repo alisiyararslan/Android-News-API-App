@@ -8,9 +8,10 @@ import com.alisiyararslan.news.R
 import com.alisiyararslan.news.databinding.RecyclerRowNewsBinding
 import com.alisiyararslan.news.model.NewsItem
 import com.alisiyararslan.news.view.HomeFragmentDirections
+import com.alisiyararslan.news.view.SearchFragmentDirections
 import com.squareup.picasso.Picasso
 
-class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
+class NewsAdapter(var newsList: ArrayList<NewsItem>, var pageName : String): RecyclerView.Adapter<NewsAdapter.NewsHolder>() {
     class NewsHolder(val binding: RecyclerRowNewsBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -33,10 +34,15 @@ class NewsAdapter(var newsList: ArrayList<NewsItem>): RecyclerView.Adapter<NewsA
             holder.binding.recyclerRowSourceTextView.text = newsList.get(position).source!!.name
         }
 
-
         holder.binding.recyclerRowLayout.setOnClickListener {
-            val action=HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsList.get(position))
-            Navigation.findNavController(it).navigate(action)
+            if (pageName.equals("home")){
+                val action=HomeFragmentDirections.actionHomeFragmentToNewsDetailFragment(newsList.get(position),"home_fragment")
+                Navigation.findNavController(it).navigate(action)
+            }else if(pageName.equals("search")){
+                val action=SearchFragmentDirections.actionSearchFragmentToNewsDetailFragment(newsList.get(position),"search_fragment")
+                Navigation.findNavController(it).navigate(action)
+            }
+
         }
 
     }
