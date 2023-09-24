@@ -14,7 +14,7 @@ While developing this application, the API service provided by NewsAPI . Since t
 ![image](https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/8a1aebdf-4584-4a7e-a7fe-67b3c20912b8)    ![image](https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/c3b3bda3-f865-48d7-8948-6b5a25894a6d)     ![image](https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/aef36617-05e7-4b72-895a-66f4ea8d514b)
 
 
-<img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/8a1aebdf-4584-4a7e-a7fe-67b3c20912b8" width="250" >  <img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/c3b3bda3-f865-48d7-8948-6b5a25894a6d" width="250" >  <img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/aef36617-05e7-4b72-895a-66f4ea8d514b" width="250" >
+<img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/8a1aebdf-4584-4a7e-a7fe-67b3c20912b8" width="270" >  <img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/c3b3bda3-f865-48d7-8948-6b5a25894a6d" width="270" >  <img src="https://github.com/alisiyararslan/Android-News-Api-App/assets/95187142/aef36617-05e7-4b72-895a-66f4ea8d514b" width="270" >
 
 
 **News Detail Page:** If the user clicks on a news on any page, he/she reaches the news detail page. On this page, the image, title, source, date, and content of the news are shown to the user.
