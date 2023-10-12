@@ -1,4 +1,4 @@
-# Android-News-Api-App
+# Android-News-API-App
 
 We present you the events and developments taking place in the world. In News App, you can read news about anywhere, from your own neighborhood to the farthest corner of the world. News App provides users with easy access to different news categories and news and allows them to personalize the user experience. Users can create their own customized news feeds by selecting categories of interest. Thanks to the search page, the user is given the opportunity to search by news source and news content, so the user can reach the content he/she wants much faster.
 
